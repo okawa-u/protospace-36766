@@ -13,43 +13,32 @@
 
 ### Association
 
-- has_many :room_users
-- has_many :rooms, through: :room_users
-- has_many :messages
+- has_many :prototypes
+- has_many :comments
 
-## rooms テーブル
+## prototypes テーブル
 
-| Column | Type   | Options     |
-| ------ | ------ | ----------- |
-| name   | string | null: false |
-
-### Association
-
-- has_many :room_users
-- has_many :users, through: :room_users
-- has_many :messages
-
-## room_users テーブル
-
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| user   | references | null: false, foreign_key: true |
-| room   | references | null: false, foreign_key: true |
+| Column       | Type       | Options           |
+| ------------ | ---------- | ------------------|
+| title        | string     | null: false       |
+| catch_copy   | text       | null: false       |
+| concept      | text       | null: false       |
+| user         | references | foreign_key: true |
 
 ### Association
 
-- belongs_to :room
 - belongs_to :user
+- has_many :comments
 
-## messages テーブル
+## comments_users テーブル
 
-| Column  | Type       | Options                        |
-| ------- | ---------- | ------------------------------ |
-| content | string     |                                |
-| user    | references | null: false, foreign_key: true |
-| room    | references | null: false, foreign_key: true |
+| Column        | Type       | Options           |
+| ------------- | ---------- | ----------------- |
+| text          | text       | null: false       |
+| prototypes    | references | foreign_key: true |
+| user          | references | foreign_key: true |
 
 ### Association
 
-- belongs_to :room
+- belongs_to :phototype
 - belongs_to :user
