@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: protospace_36766_production
-  username: protospace_36766
-  password: <%= ENV['PROTOSPACE_36766_DATABASE_PASSWORD'] %>
+  database: protospace_sample_production
+  username: protospace_sample
+  password: <%= ENV['PROTOSPACE_SAMPLE_DATABASE_PASSWORD'] %>
